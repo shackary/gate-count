@@ -45,3 +45,6 @@ sheet <- gs_title("Gate_Test")
 
 ## Append the new data to the end of the sheet
 gs_add_row(sheet, ws = hwid, input = data.frame(today(tzone = tz) - days(1), daily_count, i1, i2, i3, i4))
+
+## Clean up
+closeAllConnections()
