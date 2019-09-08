@@ -11,7 +11,7 @@ wk_begin <- wk_end - days(6)
 this_week <- filter(sheet, Date %within% interval(wk_begin, wk_end))
 
 ## Plot daily activity totals
-ggplot(this_week, aes(x = Date, y = Daily.count)) + geom_col(aes(fill = Daily.count))
+ggplot(this_week, aes(x = Date, y = Daily.count)) + geom_col(aes(fill = Date))
 
 ## Transform the data for interval plotting
 this_week <- this_week %>% select(-Daily.count) %>%
@@ -24,3 +24,4 @@ this_week$Interval <- factor(this_week$Interval,
 ## Plot counts for each interval by date
 
 ggplot(this_week, (aes(x = Interval, y = Count, group = Date))) + geom_col(aes(fill = Date), position = "dodge")
+
