@@ -1,7 +1,7 @@
 library(readr); library(lubridate); library(googlesheets)
 
 ## Set hardware ID
-hwid <- "TS"
+hwid <- "TN"
 
 ## Set time zone
 tz <- "America/New_York"
