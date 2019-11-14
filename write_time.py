@@ -1,9 +1,5 @@
 import time
 import RPi.GPIO as GPIO
-import os
-
-#Set the working directory
-os.chdir("/home/pi/Documents/gatecount")
 
 #Set up the I/O
 GPIO.setmode(GPIO.BOARD)
@@ -14,11 +10,15 @@ print("Ready to go!")
 time.sleep(10)
 print("Waiting...")
 
+#Set up an iterator (just for fun while testing)
+hits = 1
+
 #Execution
 while True:
 	if GPIO.input(7):
-		print("Movement detected!")
-		with open('hits_test.txt', 'a', encoding = "UTF-8") as data:
+		print("Movement detected!" + " " + str(hits))
+		hits += 1
+		with open('/home/pi/Documents/gate-count/raws/hits_test.txt', 'a', encoding = "UTF-8") as data:
 			data.write(str(time.time()) + '\n')
 		time.sleep(3)
 	
